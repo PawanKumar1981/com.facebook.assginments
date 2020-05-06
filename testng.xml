@@ -3,7 +3,9 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.wallethub.facebook.base.BaseClass"/>
+      <class name="com.wallethub.facebook.LoginPage.facebookHomePageTest"/>
+      <!-- class name="com.wallethub.facebook.base.BaseClass"/-->
+      <!--class name="com.wallethub.facebook.LoginPage.facebookLoginPageTest"/-->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

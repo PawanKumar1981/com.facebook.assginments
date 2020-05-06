@@ -20,9 +20,13 @@ public class facebookLoginPage extends BaseClass {
 		
 		@FindBy(xpath="//label[@id='loginbutton']")
 		WebElement loginBtn;
+		
+		@FindBy(xpath="//a[contains(text(),'Home')]")
+		WebElement FaceBook_HomePage;
 		//Initializing the Page Objects:
 		
-		public facebookLoginPage() throws IOException {
+		
+		public facebookLoginPage() {
 			PageFactory.initElements(driver, this);	
 			
 		}
@@ -32,8 +36,12 @@ public class facebookLoginPage extends BaseClass {
 			username.sendKeys(usrname);
 			password.sendKeys(passwrd);
 			loginBtn.click();
+		}
+     public boolean navigateHomepageofFace_book() {
+			
+    	return  FaceBook_HomePage.isDisplayed();
+			
 			
 		}
-		
 
 }
