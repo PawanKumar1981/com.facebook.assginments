@@ -1,7 +1,5 @@
 package com.wallethub.facebook.pages;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,38 +8,36 @@ import com.wallethub.facebook.base.BaseClass;
 
 public class facebookLoginPage extends BaseClass {
 
+	// Object Rep
+	@FindBy(name = "email")
+	WebElement username;
 
-		//Object Rep
-		@FindBy(name="email")
-		WebElement username;
-		
-		@FindBy(name="pass")
-		WebElement password;
-		
-		@FindBy(xpath="//label[@id='loginbutton']")
-		WebElement loginBtn;
-		
-		@FindBy(xpath="//a[contains(text(),'Home')]")
-		WebElement FaceBook_HomePage;
-		//Initializing the Page Objects:
-		
-		
-		public facebookLoginPage() {
-			PageFactory.initElements(driver, this);	
-			
-		}
-		
-		public void facebook_login(String usrname, String passwrd) {
-			
-			username.sendKeys(usrname);
-			password.sendKeys(passwrd);
-			loginBtn.click();
-		}
-     public boolean navigateHomepageofFace_book() {
-			
-    	return  FaceBook_HomePage.isDisplayed();
-			
-			
-		}
+	@FindBy(name = "pass")
+	WebElement password;
+
+	@FindBy(xpath = "//label[@id='loginbutton']")
+	WebElement loginBtn;
+
+	@FindBy(xpath = "//a[contains(text(),'Home')]")
+	WebElement FaceBook_HomePage;
+	// Initializing the Page Objects:
+
+	public facebookLoginPage() {
+		PageFactory.initElements(driver, this);
+
+	}
+
+	public void facebook_login(String usrname, String passwrd) {
+
+		username.sendKeys(usrname);
+		password.sendKeys(passwrd);
+		loginBtn.click();
+	}
+
+	public boolean navigateHomepageofFace_book() {
+
+		return FaceBook_HomePage.isDisplayed();
+
+	}
 
 }
