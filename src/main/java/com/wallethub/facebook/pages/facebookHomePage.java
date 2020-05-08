@@ -1,6 +1,8 @@
 package com.wallethub.facebook.pages;
 
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -27,8 +29,11 @@ public class facebookHomePage extends BaseClass {
 
 	public void create_newpost(String msg) throws InterruptedException {
 
+		
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click()", createpostlnk);
+		//createpostlnk.click();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		createpostlnk.click();
 		editortext.click();
 		Actions ac = new Actions(driver);
 		ac.sendKeys(msg);

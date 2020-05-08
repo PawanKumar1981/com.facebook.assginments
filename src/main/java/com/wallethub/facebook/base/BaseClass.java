@@ -7,10 +7,12 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
@@ -38,17 +40,28 @@ public class BaseClass {
 	public static void browserinitialization() throws IOException {
 
 		switch (prop.getProperty("Browser")) {
+
 		case "chrome":
 			// WebDriverManager.chromedriver().setup();
-			// ChromeOptions options = new ChromeOptions();
-			// options.addArguments("--disable-notifications");
+
 			System.setProperty("webdriver.chrome.driver", prop.getProperty("chromepath"));
-			driver = new ChromeDriver();
+			// below line of code to fix-> Timed out receiving message from renderer: 0.100
+			// System.setProperty("Webdriver.chrome.silentOutput", "true");
+			// mention the below chrome option to solve timeout exception issue
+			ChromeOptions options = new ChromeOptions();
+			options.setPageLoadStrategy(PageLoadStrategy.NONE);
+			options.addArguments("--disable-notifications");
+			// Instantiate the chrome driver
+			driver = new ChromeDriver(options);
+			// driver = new ChromeDriver();
 			break;
+
 		case "FF":
+			// Instantiate the firefox driver
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			break;
+
 		default:
 			break;
 		}
@@ -59,10 +72,11 @@ public class BaseClass {
 
 	}
 
-	@AfterClass
+	@AfterTest
 	public void tearDown() {
 
 		driver.quit();
+		log.info("Browser was closed sucessfully");
 
 	}
 

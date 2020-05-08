@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.wallethub.facebook.LoginPage.facebookHomePageTest">
+      <class name="com.wallethub.facebook.Test.facebookHomePageTest">
         <methods>
-          <include name="login"/>
-          <include name="setUp"/>
+          <include name="setUpandLogin"/>
+          <include name="logOutpage"/>
+          <include name="faceBook_createpost"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- com.wallethub.facebook.LoginPage.facebookHomePageTest -->
+      </class> <!-- com.wallethub.facebook.Test.facebookHomePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,3 +1,5 @@
-14:19:27,302  INFO com.wallethub.facebook.base.BaseClass<strong>{1}</strong>:30 - intitialzation and setup
-14:19:46,007  INFO com.wallethub.facebook.base.BaseClass<strong>{1}</strong>:40 - Log in sucessfull and Landed to Homepage
-14:20:02,745  INFO com.wallethub.facebook.base.BaseClass<strong>{1}</strong>:58 - Post created sucessfully from my account
+19:05:23,463  INFO com.wallethub.facebook.base.BaseClass<strong>{1}</strong>:34 - intitialzation and setup
+19:05:42,349  INFO com.wallethub.facebook.base.BaseClass<strong>{1}</strong>:40 - Log in sucessfull and Landed to Homepage
+19:05:48,531  INFO com.wallethub.facebook.base.BaseClass<strong>{1}</strong>:49 - Closed Alert sucessfully
+19:06:23,888  INFO com.wallethub.facebook.base.BaseClass<strong>{1}</strong>:55 - Post created sucessfully from my account
+19:06:26,844  INFO com.wallethub.facebook.base.BaseClass<strong>{1}</strong>:62 - Facebook Logged out sucessfully

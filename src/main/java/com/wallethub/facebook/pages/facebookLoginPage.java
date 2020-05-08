@@ -1,5 +1,7 @@
 package com.wallethub.facebook.pages;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -20,8 +22,14 @@ public class facebookLoginPage extends BaseClass {
 
 	@FindBy(xpath = "//a[contains(text(),'Home')]")
 	WebElement FaceBook_HomePage;
-	// Initializing the Page Objects:
 
+	@FindBy(xpath = "//div[@id='userNavigationLabel']")
+	WebElement userNavigationLabel;
+	
+	@FindBy(xpath = "//span[contains(text(),'Log Out')]")
+	WebElement facebook_LogOut;
+
+	// Initializing the Page Objects:
 	public facebookLoginPage() {
 		PageFactory.initElements(driver, this);
 
@@ -32,6 +40,12 @@ public class facebookLoginPage extends BaseClass {
 		username.sendKeys(usrname);
 		password.sendKeys(passwrd);
 		loginBtn.click();
+	}
+
+	public void facebook_out() {
+		userNavigationLabel.click();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		facebook_LogOut.click();
 	}
 
 	public boolean navigateHomepageofFace_book() {
